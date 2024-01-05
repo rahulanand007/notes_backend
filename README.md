@@ -1,6 +1,6 @@
 # Notes App Backend
 
-This repository contains the backend code for a simple notes app built using Node.js, Express, and MongoDB.
+This repository contains the backend code for a simple notes app . Please read this file and follow the instructions to run this Repo.
 
 *****Stack Used*****
 
@@ -41,6 +41,16 @@ Make sure to configure your environment variables:
         JWT_EXPIRE = 5d
         
         COOKIE_EXPIRE = 5
+  
+        RATE_LIMITING_MINUTES = 15 * 60 * 1000
+
+        MAX_HITS_IN_LIMITED_MINUTES = 20
+
+        DELAY_AFTER_HITS = 20
+
+        REQUEST_THROTTLING_MINUTES = 15 * 60 * 1000
+
+        DELAY_MILISECS = 500
 
    ************ENV*******************  
 - Set the `MONGODB_URI` variable to your local or remote MongoDB connection URL
@@ -83,3 +93,6 @@ NOTES API
 6.POST /api/notes/:id/share : Share a note with another user
 
 7.GET /api/search?q=:query :  Search notes with query
+
+
+NOTE - You can change Rate limiting and throttling time and hits from the ENV file
