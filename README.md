@@ -67,7 +67,7 @@ https://api.postman.com/collections/23076883-811d7a3e-89d8-4981-965d-86e24979405
 
 ************POSTMAN COLLECTION*******************  
 
-Please Download the postman collection.
+Please Copy the postman collection string you get through this URL and the paste it in import of your postman.
 
 API Endpoints
 The following endpoints are available:-
