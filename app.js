@@ -9,12 +9,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 const dotenv = require("dotenv");
-dotenv.config({ path: "./env" });
+dotenv.config();
 
 // Rate Limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 20, 
+  windowMs: process.env.RATE_LIMITING_MINUTES, // 15 minutes
+  max: process.env.MAX_HITS_IN_LIMITED_MINUTES, 
   message: "Too many requests from this IP, please try again later",
 });
 
@@ -22,11 +22,10 @@ app.use(limiter);
 
 // Request Throttling
 const speedLimiter = slowDown({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 20, 
-  delayMs: () => 500, 
+  windowMs: process.env.REQUEST_THROTTLING_MINUTES, // 15 minutes
+  delayAfter: process.env.DELAY_AFTER_HITS, 
+  delayMs: () => process.env.DELAY_MILISECS, 
 });
-
 app.use(speedLimiter);
 
 //Route imports
