@@ -149,8 +149,8 @@ const searchNote = async (req, res) => {
     }
 
     const notes = await Notes.find({ 
-        note: { $regex: query, $options: "i" },
-        user_id:req.user._id
+      $text: { $search: query },
+      user_id:req.user._id
      });
 
     if (!notes || notes.length===0) {

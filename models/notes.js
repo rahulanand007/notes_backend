@@ -13,5 +13,5 @@ const notesSchema = new mongoose.Schema({
     
 },{timestamps:true})
 
-
+notesSchema.index({ note: 'text' });
 module.exports = mongoose.model('Notes',notesSchema);
